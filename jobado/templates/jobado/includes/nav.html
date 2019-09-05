@@ -1,0 +1,38 @@
+{% load static %}
+<!-- bare de navigation fixe -->
+	<nav class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+			<div class="navbar-header">
+				<!-- button pour les petits ecrans -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				<div>
+					<a class="navbar-brand" href="{% static 'jobado/index.html' %}"><img height = "50px" id = "logo"src="{% static 'jobado/images/logo.png' %}" alt="logo JobADo"></a>
+				</div>
+			</div>
+			{% block nav-link %}
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li class="active"><a href="#">Accueil</a></li>
+					<li><a href="#">Comment ça marche</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Catégories <b class="caret"></b></a>
+							<!-- recuppere toutes les categories et affiche chacune avec les service associes -->
+							{% for cat in category_list %}
+							<ul class="dropdown-menu" >
+								<li>
+									<a href="#{{cat.id}}" class="categories-link">{{cat.name}}</a>
+								</li>
+							</ul>
+							{% endfor %}
+					</li>
+					<li><a href="#jobs">Jobs</a></li>
+					{% block extralinks %}
+					<li><a class="btn" href="/jobado/signup/">Inscription</a></li>
+					<li><a class="btn" href="/jobado/login/">Connexion</a></li>
+					{% endblock extralinks %}
+				</ul>
+			</div><!--/.nav-collapse -->
+			{% endblock nav-link %}
+		</div>
+	</nav> 
+	<!-- /.navbar -->

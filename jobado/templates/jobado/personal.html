@@ -1,0 +1,36 @@
+{% extends 'jobado/index.html' %}
+{% block title %}Mon espace personnel{% endblock %}
+{% block nav %}
+	{% include "jobado/includes/perso-nav.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1>  bienvenu {{user.username}}  </h1>
+{% block aside %}
+   	<aside>
+		<div id="compte"></div>
+		<div id="besoins"></div>
+		<div id="realisations"></div>
+		<div id="suggestions"></div>
+	</aside>
+{% endblock %}
+{% block section %}
+<p>je me trouve actuellement sur cette page parce que je me suis authetifie. je peux maintenant poster mes besoins ou proposer mes services aux autres particuliers proches de chez moi.</p>
+<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+{% endblock %}
+{% endif %}
+<div non-connecte>
+	nous n'etes pas authentifié allez vous connecter  au prealable ou inscrivez-vous
+	<div second-inscription>
+		<a href="#">Inscription</a>
+		<a href="#">Connexion</a>
+	</div>
+   </div>
+{% endblock %} 
